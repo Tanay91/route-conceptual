@@ -1,12 +1,12 @@
 import React from 'react'
-import { Link } from 'react-router-dom'
+import { useLoaderData } from 'react-router-dom'
 
-const ProductCard = ({product}) => {
-    const {id,brand,description,thumbnail,price}=product
+const Product = ({}) => {
+    const product=useLoaderData()
+    const {brand,thumbnail,price,title,description}=product
+   console.log(product)
   return (
-    <div>
-      
-<div className="w-full max-w-sm bg-white border border-gray-200 rounded-lg  dark:bg-gray-800 dark:border-gray-700 h-[500px] m-auto shadow-2xl">
+    <div className="w-full max-w-sm bg-white border border-gray-200 rounded-lg  dark:bg-gray-800 dark:border-gray-700 h-[500px] m-auto shadow-2xl">
     <a href="#">
         <img className="p-8 rounded-t-lg h-[300px] w-full" src={thumbnail} alt="" />
     </a>
@@ -35,13 +35,11 @@ const ProductCard = ({product}) => {
         </div>
         <div className="flex items-center justify-between">
             <span className="text-3xl font-bold text-gray-900 dark:text-white">${price}</span>
-            <Link to={`/product/${id}`}><button class="text-white bg-blue-700 hover:bg-blue-800 focus:ring-4 focus:outline-none focus:ring-blue-300 font-medium rounded-lg text-sm px-5 py-2.5 text-center dark:bg-blue-600 dark:hover:bg-blue-700 dark:focus:ring-blue-800">View Details</button></Link>
+            <button class="text-white bg-blue-700 hover:bg-blue-800 focus:ring-4 focus:outline-none focus:ring-blue-300 font-medium rounded-lg text-sm px-5 py-2.5 text-center dark:bg-blue-600 dark:hover:bg-blue-700 dark:focus:ring-blue-800">View Details</button>
         </div>
     </div>
 </div>
-
-    </div>
   )
 }
 
-export default ProductCard
+export default Product
