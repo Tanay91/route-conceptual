@@ -1,5 +1,5 @@
 import React from 'react'
-import { Outlet } from 'react-router-dom'
+import { NavLink, Outlet } from 'react-router-dom'
 
 const MainLayout = () => {
   return (
@@ -9,15 +9,30 @@ const MainLayout = () => {
        <nav>
 
         <ul className='flex gap-5'>
-            <li>
-                <a href="/">Home</a>
-            </li>
-            <li>
-                <a href="/products">Products</a>
-            </li>
-            <li>
-                <a href="/dashboard">Dashboard</a>
-            </li>
+        <NavLink
+        to="/"
+        className={({ isActive, isPending }) =>
+        isPending ? "pending" : isActive ? "bg-green-400 p-2 px-5 rounded-xl text-white" : ""
+     }
+>
+         Home
+       </NavLink>
+       <NavLink
+        to="/products"
+        className={({ isActive, isPending }) =>
+        isPending ? "pending" : isActive ? "bg-green-400 p-2 px-5 rounded-xl text-white" : ""
+     }
+>
+         Products
+       </NavLink>
+       <NavLink
+        to="/dashboard"
+        className={({ isActive, isPending }) =>
+        isPending ? "pending" : isActive ? "bg-green-400 p-2 px-5 rounded-xl text-white" : ""
+     }
+>
+         Dashboard
+       </NavLink>
         </ul>
        </nav>
        
